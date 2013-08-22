@@ -23,9 +23,17 @@ Ember.Container.prototype.stub = function(fullName, instance) {
   this.cache.dict[fullName] = instance;
 };
 
+Ember.Test.registerHelper('currentPath', function(app, routeName) {
+  return controllerFor('application').get('currentPath')
+});
+
 // https://github.com/stefanpenner/ember-app-kit/pull/80
 Ember.Test.registerHelper('routeFor', function(app, routeName) {
   return app.__container__.lookup('route:' + routeName);
+});
+
+Ember.Test.registerHelper('controllerFor', function(app, controllerName) {
+    return app.__container__.lookup('controller:' + controllerName);
 });
 
 App.setupForTesting();
