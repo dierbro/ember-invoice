@@ -11,11 +11,11 @@ var Invoice = DS.Model.extend({
   }.property("items.@each.total"),
   
   tax_total: function(){
-    return this.get("sub_total")/100.0*this.get("tax")
+    return this.get("sub_total")/100.0*this.get("tax");
   }.property("sub_total"),
   
   total: function(){
-    return this.get("sub_total")+this.get("tax_total")
+    return this.get("sub_total")+this.get("tax_total");
   }.property("sub_total", "tax_total")
 });
 
