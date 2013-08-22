@@ -4,6 +4,7 @@ var App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true,
   LOG_VIEW_LOOKUPS: true,
   modulePrefix: 'appkit', // TODO: loaded via config
+  rootElement: '#app-container',
   resolver: Resolver
 });
 
