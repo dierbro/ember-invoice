@@ -1,7 +1,7 @@
 function Routes() {
   // // routes/resources
    this.resource('invoices', function() {
-  //   this.route('new');
+     this.route('new');
    });
 }
 
