@@ -5,6 +5,7 @@
  * Distributed under terms of the MIT license.
  */
 import Invoice from 'appkit/models/invoice';
+import InvoiceItem from 'appkit/models/invoice_item';
 
 module("Model - Invoice");
 
@@ -18,8 +19,65 @@ test("property: `items`", function(){
   var property = Invoice.metaForProperty('items');
 
   equal(property.isRelationship, true,'Expected relationship');
-  equal(property.type, 'App.InvoiceItem');
+  equal(property.type, "InvoiceItem");
 
   equal(property.kind, 'hasMany');
 })
+
+test("computed property: sub_total", function(){
+  expect(2)
+  var invoice
+  Ember.run(function () {
+    invoice = createInvoiceWithItems()
+  })
+
+  equal(invoice.get("items.length"), 4, "invoice has 4 items")
+
+  var total = 0;
+  invoice.get("items.content").forEach(function(item){
+    total += item.record.get('total')
+  })
+
+  equal(invoice.get('sub_total'), total, "invoice sub total is correct")
+})
+
+test("computed property: tax_total", function(){
+  expect(2)
+  var invoice
+  Ember.run(function () {
+    invoice = createInvoiceWithItems()
+  })
+
+  equal(invoice.get("items.length"), 4, "invoice has 4 items")
+  var total = 0
+  invoice.get("items.content").forEach(function(item){
+    total += item.record.get('total')
+  })
+  equal(invoice.get('tax_total'), total/100.0*invoice.get("tax"), "invoice tax total is correct")
+})
+
+test("computed property: total", function(){
+  expect(2)
+  var invoice
+  Ember.run(function () {
+    invoice = createInvoiceWithItems()
+  })
+
+  equal(invoice.get("items.length"), 4, "invoice has 4 items")
+  var total = invoice.get("sub_total")+invoice.get("tax_total")
+  equal(invoice.get('total'), total, "invoice total is correct")
+})
+
+
+function createInvoiceWithItems(){
+  var invoice = Invoice.createRecord({tax: 21.0})
+  var items = invoice.get('items') 
+
+  items.createRecord({description: "item1", qty: Math.random(), price: Math.random()})
+  items.createRecord({description: "item2", qty: Math.random(), price: Math.random()})
+  items.createRecord({description: "item3", qty: Math.random(), price: Math.random()})
+  items.createRecord({description: "item4", qty: Math.random(), price: Math.random()})
+
+  return invoice
+}
 
