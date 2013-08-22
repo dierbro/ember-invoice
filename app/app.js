@@ -7,6 +7,8 @@ var App = Ember.Application.create({
   resolver: Resolver
 });
 
+App.Store = DS.Store.extend();
+
 import routes from 'appkit/routes';
 App.Router.map(routes); // TODO: just resolve the router
 
