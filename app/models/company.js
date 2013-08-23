@@ -1,4 +1,4 @@
-var Customer = DS.Model.extend({
+var Company = DS.Model.extend({
 
   name: DS.attr('string'),
 
@@ -8,5 +8,5 @@ var Customer = DS.Model.extend({
 
 });
 
-export default Customer;
+export default Company;
 

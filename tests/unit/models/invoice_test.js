@@ -4,8 +4,8 @@
  *
  * Distributed under terms of the MIT license.
  */
-import Invoice from 'appkit/models/invoice';
 import InvoiceItem from 'appkit/models/invoice_item';
+import Invoice from 'appkit/models/invoice';
 
 module("Model - Invoice");
 
@@ -15,22 +15,20 @@ test("model exists", function(){
 })
 
 test("property: `customer`", function(){
-  expect(3)
+  expect(2)
   var property = Invoice.metaForProperty('customer');
 
   equal(property.isRelationship, true,'Expected relationship');
-  equal(property.type, "Customer");
 
   equal(property.kind, 'belongsTo');
 })
 
 
 test("property: `items`", function(){
-  expect(3)
+  expect(2)
   var property = Invoice.metaForProperty('items');
 
   equal(property.isRelationship, true,'Expected relationship');
-  equal(property.type, "InvoiceItem");
 
   equal(property.kind, 'hasMany');
 })

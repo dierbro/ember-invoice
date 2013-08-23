@@ -4,7 +4,7 @@ var Invoice = DS.Model.extend({
   invoice_number: DS.attr('number', {default: new Date()}),
   issued: DS.attr('date'),
   items: DS.hasMany('InvoiceItem'),
-  customer: DS.belongsTo('Customer'),
+  customer: DS.belongsTo('Company'),
   
   sub_total: function(){
     return this.get('items').getEach('total').reduce(function(sum, partial) {

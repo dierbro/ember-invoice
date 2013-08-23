@@ -5,7 +5,7 @@
  * Distributed under terms of the MIT license.
  */
 
-import Customer from 'appkit/models/customer';
+import Customer from 'appkit/models/company';
 
 module("Model - Customer");
 
