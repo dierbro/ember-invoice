@@ -28,5 +28,24 @@
       <address class="customer"></address>
     </div>
   </div>
-  <div class="items"></div>
+  <table class="items table table-condensed">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each item in items}}
+        <tr class="item">
+          <td></td>
+          <td>{{item.description}}</td>
+          <td>{{item.qty}}</td>
+          <td>{{item.price}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>

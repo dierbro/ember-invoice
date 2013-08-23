@@ -32,8 +32,8 @@ module("Acceptances - New Invoices", {
   }
 });
 
-test("renders new button", function(){
-  expect(8)
+test("renders empty invoice", function(){
+  expect(9)
   visit("/invoices/new").then(function(){
     equal(find("div.invoice").length,1)
       equal(find("div.invoice .logo").length,1)
@@ -43,6 +43,9 @@ test("renders new button", function(){
       equal(find("div.invoice address.company").length,1)
       equal(find("div.invoice address.customer").length,1)
       equal(find("div.invoice .items").length,1)
+        equal(find("div.invoice .items tr.item").length,1)
   })
 });
+
+
 

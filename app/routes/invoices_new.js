@@ -7,6 +7,8 @@ var InvoicesNewRoute = Ember.Route.extend({
       invoice_number: 10,
       issued: new Date()
     });
+    items = invoice.get("items")
+    items.createRecord({ description: "placeholder", qty: 10, price: 11})
     return invoice;
   }
 });
