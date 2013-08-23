@@ -26,3 +26,23 @@ test("renders new button", function(){
   });
 });
 
+module("Acceptances - New Invoices", {
+  setup: function(){
+    App.reset();
+  }
+});
+
+test("renders new button", function(){
+  expect(8)
+  visit("/invoices/new").then(function(){
+    equal(find("div.invoice").length,1)
+      equal(find("div.invoice .logo").length,1)
+      equal(find("div.invoice .info").length,1)
+        equal(find("div.invoice .info .number").length,1)
+        equal(find("div.invoice .info .date").length,1)
+      equal(find("div.invoice address.company").length,1)
+      equal(find("div.invoice address.customer").length,1)
+      equal(find("div.invoice .items").length,1)
+  })
+});
+

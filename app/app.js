@@ -10,6 +10,12 @@ var App = Ember.Application.create({
 
 App.Store = DS.Store.extend();
 
+///FIXME: move to helpers folder
+Ember.Handlebars.helper('moment', function(value) {
+  return moment(value).format('L');
+});
+///
+
 import routes from 'appkit/routes';
 App.Router.map(routes); // TODO: just resolve the router
 

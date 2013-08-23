@@ -1,0 +1,32 @@
+<div class="invoice">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="logo">
+        Image
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well info">
+        <div class="row">
+          <div class="col-md-6">
+            <strong>Invoice #</strong>
+            <span class="number">{{invoice_number}}</span>
+          </div>
+          <div class="col-md-6">
+            <strong>Date:</strong>
+            <span class="date">{{moment issued}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <address class="company"></address>
+    </div>
+    <div class="col-md-6">
+      <address class="customer"></address>
+    </div>
+  </div>
+  <div class="items"></div>
+</div>
