@@ -6,6 +6,7 @@
     "setTimeout",
     "Ember",
     "DS",
+    "moment",
     "$",
     "define",
     "console",
