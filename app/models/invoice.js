@@ -3,6 +3,7 @@ var Invoice = DS.Model.extend({
   tax: DS.attr('number'),
   invoice_number: DS.attr('number'),
   items: DS.hasMany('InvoiceItem'),
+  customer: DS.belongsTo('Customer'),
   
   sub_total: function(){
     return this.get('items').getEach('total').reduce(function(sum, partial) {
