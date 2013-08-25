@@ -8,7 +8,9 @@ var App = Ember.Application.create({
   resolver: Resolver
 });
 
-App.Store = DS.Store.extend();
+App.Store = DS.Store.extend({
+  adapter: DS.LSAdapter.create()
+});
 
 ///FIXME: move to helpers folder
 Ember.Handlebars.helper('moment', function(value) {
