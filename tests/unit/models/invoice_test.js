@@ -14,6 +14,14 @@ test("model exists", function(){
   ok(Invoice, 'expected model')
 })
 
+test("property: `issuer`", function(){
+  expect(2)
+  var property = Invoice.metaForProperty('issuer');
+
+  equal(property.isRelationship, true,'Expected relationship');
+
+  equal(property.kind, 'belongsTo');
+})
 test("property: `customer`", function(){
   expect(2)
   var property = Invoice.metaForProperty('customer');
