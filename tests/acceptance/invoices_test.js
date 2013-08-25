@@ -47,5 +47,26 @@ test("renders empty invoice", function(){
   })
 });
 
+test("Removes items from list", function(){
+  expect(2)
+  visit("/invoices/new").then(function(){
+    click("button.btn-remove-item")
+    equal(find("div.invoice .items").length,1)
+      equal(find("div.invoice .items tr.item").length,0)
+  })
+
+})
+
+test("Add items to list", function(){
+  expect(2)
+  visit("/invoices/new").then(function(){
+    var items_count = find("div.invoice .items tr.item").length
+    click("button.btn-add-item")
+    equal(find("div.invoice .items").length,1)
+      equal(find("div.invoice .items tr.item").length,items_count+1)
+  })
+
+})
+
 
 

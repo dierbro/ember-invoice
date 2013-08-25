@@ -1,6 +1,6 @@
 var Invoice = DS.Model.extend({
 
-  tax: DS.attr('number', {default: 1}),
+  tax: DS.attr('number'),
   invoice_number: DS.attr('number', {default: new Date()}),
   issued: DS.attr('date'),
   items: DS.hasMany('InvoiceItem'),

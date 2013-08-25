@@ -9,8 +9,9 @@ var InvoicesNewRoute = Ember.Route.extend({
 
   stubNewInvoice: function(){
     //FIXME
-    Company.createRecord({id: "issuer"})
+    Company.createRecord({id: "issuer"});
     var items, invoice = Invoice.createRecord({
+      tax: 21,
       invoice_number: 10,
       issued: new Date(),
       issuer: Company.find("issuer"),
@@ -19,6 +20,16 @@ var InvoicesNewRoute = Ember.Route.extend({
     items = invoice.get("items");
     items.createRecord({ description: "placeholder", qty: 10, price: 11});
     return invoice;
+  },
+
+  events: {
+    removeItem: function(item){
+      item.deleteRecord();
+    },
+    addItem: function(){
+      var items = this.controller.get('model').get('items');
+      items.createRecord({})
+    }
   }
 });
 
