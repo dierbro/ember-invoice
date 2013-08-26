@@ -51,7 +51,7 @@
           <td><button class="btn btn-danger btn-xs btn-remove-item" {{action 'removeItem' item}}>X</button></td>
           <td>{{item.description}}</td>
           <td>{{item.qty}}</td>
-          <td>{{money item.price}}</td>
+          <td class="currency">{{money item.price}}</td>
         </tr>
       {{/each}}
       <tr>
@@ -59,15 +59,15 @@
       </tr>
       <tr>
         <td class="total" colspan="3">Sub Total</td>
-        <td>{{money sub_total}}</td>
+        <td class="currency">{{money sub_total}}</td>
       </tr>
       <tr>
         <td class="total" colspan="3">Tax Total({{tax}}%)</td>
-        <td>{{money tax_total}}</td>
+        <td class="currency">{{money tax_total}}</td>
       </tr>
       <tr>
         <td class="total" colspan="3">Total</td>
-        <td>{{money total}}</td>
+        <td class="currency" >{{money total}}</td>
       </tr>
     </tbody>
   </table>

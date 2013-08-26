@@ -1,3 +1,7 @@
+.currency{
+    text-align: right;
+}
+
 .total{
     font-weight: bold;
     text-align: right;
