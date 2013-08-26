@@ -16,6 +16,9 @@ App.Store = DS.Store.extend({
 Ember.Handlebars.helper('moment', function(value) {
   return moment(value).format('L');
 });
+Ember.Handlebars.helper('money', function(value) {
+  return accounting.formatMoney(value);
+});
 ///
 
 import routes from 'appkit/routes';
