@@ -3,7 +3,7 @@ var Invoice = DS.Model.extend({
   tax: DS.attr('number'),
   invoice_number: DS.attr('number', {default: new Date()}),
   issued: DS.attr('date'),
-  items: DS.hasMany('InvoiceItem'),
+  items: DS.hasMany('InvoiceItem', {inverse: 'invoice'}),
   customer: DS.belongsTo('Company'),
   issuer: DS.belongsTo('Company'),
   

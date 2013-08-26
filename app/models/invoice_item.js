@@ -2,7 +2,7 @@ var InvoiceItem = DS.Model.extend({
   description: DS.attr('string'),
   qty: DS.attr('number'),
   price: DS.attr('number'),
-  invoice:  DS.belongsTo('Invoice'),
+  invoice:  DS.belongsTo('Invoice', {inverse: 'items'}),
 
   total: function(){
     return this.get('qty') * this.get('price');
