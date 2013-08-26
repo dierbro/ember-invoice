@@ -65,7 +65,15 @@ test("Add items to list", function(){
     equal(find("div.invoice .items").length,1)
       equal(find("div.invoice .items tr.item").length,items_count+1)
   })
+})
 
+test("In Place Edit", function(){
+  expect(1)
+
+  visit("/invoices/new").then(function(){
+    click(".items td.item-description div");
+    equal(true, exists(".item td.item-description input"))
+  });
 })
 
 

@@ -48,10 +48,10 @@
     <tbody>
       {{#each item in items}}
         <tr class="item">
-          <td><button class="btn btn-danger btn-xs btn-remove-item" {{action 'removeItem' item}}>X</button></td>
-          <td>{{item.description}}</td>
-          <td>{{item.qty}}</td>
-          <td class="currency">{{money item.price}}</td>
+          <td class="item-action"><button class="btn btn-danger btn-xs btn-remove-item" {{action 'removeItem' item}}>X</button></td>
+          <td class="item-description">{{inPlaceField contentBinding="item.description"}}</td>
+          <td class="item-qty">{{inPlaceField contentBinding="item.qty"}}</td>
+          <td class="item-price currency">{{inPlaceField contentBinding="item.price" contentType="money"}}</td>
         </tr>
       {{/each}}
       <tr>

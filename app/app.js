@@ -19,6 +19,8 @@ Ember.Handlebars.helper('moment', function(value) {
 Ember.Handlebars.helper('money', function(value) {
   return accounting.formatMoney(value);
 });
+import InPlaceFieldView from 'appkit/views/in_place_field';
+Ember.Handlebars.helper('inPlaceField',InPlaceFieldView);
 ///
 
 import routes from 'appkit/routes';
