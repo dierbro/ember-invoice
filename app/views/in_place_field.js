@@ -5,7 +5,14 @@
 var InPlaceFieldView = Ember.View.extend({
   tagName: 'div',
   isEditing: false,
-  templateName: 'in_place_edit',
+  layoutName: "in_place_edit",
+  templateName: function(){
+    if(this.get("contentType") == 'currency'){
+      return 'in_place_currency_field'
+    } else {
+      return 'in_place_text_field';
+    }
+  }.property(),
   isEmpty: function(){
     return Ember.isEmpty(this.get('content'))
   }.property('content'),
@@ -20,11 +27,6 @@ var InPlaceFieldView = Ember.View.extend({
   click: function(){
     this.set("isEditing", true);
   }
-})
-
-
-var InPlaceTextFieldView = InPlaceFieldView.extend({
-  inputField: Ember.TextField.extend({})
 })
 
 export default InPlaceFieldView;

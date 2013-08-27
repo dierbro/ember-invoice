@@ -51,7 +51,7 @@
           <td class="item-action"><button class="btn btn-danger btn-xs btn-remove-item" {{action 'removeItem' item}}>X</button></td>
           <td class="item-description">{{inPlaceField contentBinding="item.description"}}</td>
           <td class="item-qty">{{inPlaceField contentBinding="item.qty"}}</td>
-          <td class="item-price currency">{{inPlaceField contentBinding="item.price" contentType="money"}}</td>
+          <td class="item-price currency">{{inPlaceField contentBinding="item.price" contentType="currency"}}</td>
         </tr>
       {{/each}}
       <tr>
