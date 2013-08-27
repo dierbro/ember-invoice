@@ -8,6 +8,7 @@
     "DS",
     "moment",
     "accounting",
+    "CLDR",
     "$",
     "define",
     "console",
