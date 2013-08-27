@@ -1,5 +1,5 @@
 {{#if view.isEditing}}
-    {{view view.inputField valueBinding="view.content"}}
+    {{view view.inputField valueBinding="view.content" class="form-control"}}
 {{else}}
     {{#if view.isEmpty}}
         {{view.emptyValue}}
