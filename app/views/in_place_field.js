@@ -3,7 +3,7 @@
 //
 
 var InPlaceFieldView = Ember.View.extend({
-  tagName: 'div',
+  tagName: 'span',
   isEditing: false,
   layoutName: "in_place_edit",
   templateName: function(){
