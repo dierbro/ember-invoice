@@ -9,11 +9,11 @@
       <div class="well info">
         <div class="row">
           <div class="col-md-6">
-            <strong>Invoice #</strong>
+            <strong>{{t invoice}} #</strong>
             <span class="number">{{invoice_number}}</span>
           </div>
           <div class="col-md-6">
-            <strong>Date:</strong>
+            <strong>{{t date}}:</strong>
             <span class="date">{{moment issued}}</span>
           </div>
         </div>
@@ -40,9 +40,9 @@
     <thead>
       <tr>
         <th width="5%"></th>
-        <th width="70%">Description</th>
-        <th width="10%">Quantity</th>
-        <th width="15%" class="currency">Price</th>
+        <th width="70%">{{ t invoice_item.attrs.description }}</th>
+        <th width="10%">{{ t invoice_item.attrs.qty }}</th>
+        <th width="15%" class="currency">{{ t invoice_item.attrs.price }}</th>
       </tr>
     </thead>
     <tbody>
@@ -55,18 +55,22 @@
         </tr>
       {{/each}}
       <tr>
-        <td colspan="4"><button class='btn btn-success btn-xs btn-add-item'{{action 'addItem'}}>Add Item</button></td>
+        <td colspan="4">
+          <button class='btn btn-success btn-xs btn-add-item'{{action 'addItem'}}>
+            {{ t button.add_invoice_item }}
+          </button>
+        </td>
       </tr>
       <tr>
-        <td class="total" colspan="3">Sub Total</td>
+        <td class="total" colspan="3">{{ t invoice.attrs.sub_total }}</td>
         <td class="currency">{{money sub_total}}</td>
       </tr>
       <tr>
-        <td class="total" colspan="3">Tax Total({{tax}}%)</td>
+        <td class="total" colspan="3">{{ t invoice.attrs.tax_total }}({{tax}}%)</td>
         <td class="currency">{{money tax_total}}</td>
       </tr>
       <tr>
-        <td class="total" colspan="3">Total</td>
+        <td class="total" colspan="3">{{ t invoice.attrs.total }}</td>
         <td class="currency" >{{money total}}</td>
       </tr>
     </tbody>

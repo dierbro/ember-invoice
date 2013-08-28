@@ -1,5 +1,10 @@
 import Resolver from 'resolver';
 
+CLDR.defaultLocale = 'en';
+
+import translations from 'appkit/locales/en';
+Ember.I18n.translations = translations;
+
 var App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true,
   LOG_VIEW_LOOKUPS: true,
@@ -25,5 +30,6 @@ Ember.Handlebars.helper('inPlaceField',InPlaceFieldView);
 
 import routes from 'appkit/routes';
 App.Router.map(routes); // TODO: just resolve the router
+
 
 export default App;
