@@ -71,8 +71,8 @@ test("In Place Edit", function(){
   expect(1)
 
   visit("/invoices/new").then(function(){
-    click(".items td.item-description div");
-    equal(true, exists(".item td.item-description input"))
+    click(".items td.item-description span");
+    equal(true, exists(".item td.item-description form"))
   });
 })
 

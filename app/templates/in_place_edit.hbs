@@ -1,5 +1,9 @@
 {{#if view.isEditing}}
-    {{view view.inputField valueBinding="view.content" class="form-control"}}
+    <form class="form-inline" role="form" style="display: inline">
+      <div class="form-group">
+        {{view view.inputField valueBinding="view.content" class="form-control"}}
+      </div>
+    </form>
 {{else}}
     {{#if view.isEmpty}}
         {{view.emptyValue}}
